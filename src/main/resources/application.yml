@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    aws:
+      region:
+        static: ap-south-1
+      credentials:
+        access-key: ${AWS_ACCESS_KEY_ID:test}
+        secret-key: ${AWS_SECRET_ACCESS_KEY:test}
+      sqs:
+        # Uncomment ONLY if running LocalStack locally on port 4566
+        # endpoint: http://localhost:4566
+
+app:
+  queue:
+    order-events: order-events-queue
+    order-events-dlq: order-events-dlq
